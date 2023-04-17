@@ -32,10 +32,19 @@ public class UserTest {
 
     @Test
     public void check () {
-        User out = new User("user","123@mail.com");
-        Assertions. assertTrue(out.getInstance(out.getLogin(),out.getEmail() ));
-       Assertions. assertTrue( out.checkEmail(out.getEmail());
+        User out = new User("user ","123@trwet");
+        String login = out.getLogin();
+        String email = out.getEmail();
+        Assertions.assertTrue(out.getInstance(login,email));
     }
+    @Test
+    public void check2 () {
+        User out = new User("user ","123@trwet");
+        String login = out.getLogin();
+        String email = out.getEmail();
+        Assertions.assertTrue(out.checkCompereEmailAndLogin(login,email));
+    }
+
 
 }
 
