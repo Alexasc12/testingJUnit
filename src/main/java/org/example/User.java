@@ -6,7 +6,7 @@ public class User {
 
     public User(String login, String email) {
         if(login == null && email == null)
-                throw new NullPointerException();
+            throw new NullPointerException();
         else getInstance( login, email);
 
         this.login = login;
@@ -23,19 +23,19 @@ public class User {
         return email;
     }
     public User() {
-          }
+    }
 
-//    public class MyClass {
+    //    public class MyClass {
 //        private int i;
 //        private MyClass(int i) {
 //            this.i=i;
 //        }
     public   boolean getInstance(String login,String email) {
-            if (!checkCompereEmailAndLogin(login,email ) && !checkEmail(email)) {
-                throw new IllegalArgumentException( "Данные  введены не коректно");
-            }
-            else return true;
+        if (!checkCompereEmailAndLogin(login,email ) && !checkEmail(email)) {
+            throw new IllegalArgumentException( "Данные  введены не коректно");
         }
+        else return true;
+    }
 
 
     public    boolean checkEmail(String email) {
