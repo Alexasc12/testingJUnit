@@ -45,7 +45,7 @@ public class UserTest {
         String login1 = "email@";
         String email1 = "email@";
         Assertions.assertTrue(out.checkCompereEmailAndLogin(login,email));
-        Assertions.assertFalse(out.checkCompereEmailAndLogin(login1,email1));
+        Assertions.assertFalse(out .checkCompereEmailAndLogin(login1,email1));
 
     }
 
