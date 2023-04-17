@@ -32,7 +32,7 @@ public class User {
 //        }
     public   boolean getInstance(String login,String email) {
             if (!checkCompereEmailAndLogin(login,email ) && !checkEmail(email)) {
-                throw new IllegalArgumentException( "Данные введены не коректно");
+                throw new IllegalArgumentException( "Данные  введены не коректно");
             }
             else return true;
         }

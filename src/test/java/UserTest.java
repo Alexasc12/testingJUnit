@@ -56,7 +56,7 @@ public class UserTest {
         IllegalArgumentException exception =
                 Assertions.assertThrows(IllegalArgumentException.class,()->{ out.getInstance(login1,email1);
                 });
-        Assertions.assertEquals("Данные введены не коректно",exception.getMessage());
+        Assertions.assertEquals("Данные введены не  коректно",exception.getMessage());
     }
 
 
