@@ -7,7 +7,7 @@ public class User {
     public User(String login, String email) {
         if(login == null && email == null)
                 throw new NullPointerException();
-        else getInstance( email, login);
+        else getInstance( login, email);
 
         this.login = login;
         this.email = email;
@@ -31,21 +31,18 @@ public class User {
 //            this.i=i;
 //        }
     public   boolean getInstance(String login,String email) {
-            if (checkCompereEmailAndLogin(login,email ) && checkEmail(email)) {
-                return true;
+            if (!checkCompereEmailAndLogin(login,email ) && !checkEmail(email)) {
+                throw new IllegalArgumentException( "Данные введены не коректно");
             }
-            else
-            throw new IllegalArgumentException();
+            else return true;
         }
 
 
     public    boolean checkEmail(String email) {
-        boolean result = false;
         if (email.contains("@")) {
-            result = true;
-            return result;
+            return false;
         } else{
-            throw new IllegalArgumentException("Email должен содержать @");
+            return true;
         }
 
     }
@@ -54,8 +51,7 @@ public class User {
         if (!email.equals(login)) {
             return true;
         }
-        else
-        throw new IllegalArgumentException("Email и Login должы отличаться");
+        else return false;
     }
 
 }

@@ -17,32 +17,46 @@ public class UserTest {
     private final User out = new User();
 
     @Test
-    public void checkLoginAndEmail() {
+    public void checkUserWithParameters() {
         User out = new User("user", "123@mail.com");
         Assertions.assertEquals("user", out.getLogin());
         Assertions.assertEquals("123@mail.com", out.getEmail());
     }
 
     @Test
-    public void checkUser() {
+    public void checkUserWitoutParametr() {
         User out = new User();
         Assertions.assertEquals(null, out.getLogin());
         Assertions.assertEquals(null, out.getEmail());
     }
 
     @Test
-    public void check () {
-        User out = new User("user ","123@trwet");
-        String login = out.getLogin();
-        String email = out.getEmail();
-        Assertions.assertTrue(out.getInstance(login,email));
+    public void checkEmail () {
+
+        String email1 = "email";
+        String email = "email@";
+        Assertions.assertFalse(out.checkEmail(email));
+        Assertions.assertTrue(out.checkEmail(email1));
     }
     @Test
-    public void check2 () {
-        User out = new User("user ","123@trwet");
-        String login = out.getLogin();
-        String email = out.getEmail();
+    public void checkCompereLoginAndEmail () {
+        String login = "login";
+        String email = "email@";
+        String login1 = "email@";
+        String email1 = "email@";
         Assertions.assertTrue(out.checkCompereEmailAndLogin(login,email));
+        Assertions.assertFalse(out.checkCompereEmailAndLogin(login1,email1));
+
+    }
+
+    @Test
+    public void testGetInstanceInvalidInput() {
+        String login1 = "email@";
+        String email1 = "email@";
+        IllegalArgumentException exception =
+                Assertions.assertThrows(IllegalArgumentException.class,()->{ out.getInstance(login1,email1);
+                });
+        Assertions.assertEquals("Данные введены не коректно",exception.getMessage());
     }
 
 
