@@ -31,21 +31,22 @@ public class UserTest {
     }
 
     @Test
-    public void checkEmail () {
+    public void checkEmail() {
 
         String email1 = "email";
         String email = "email@";
         Assertions.assertFalse(out.checkEmail(email));
         Assertions.assertTrue(out.checkEmail(email1));
     }
+
     @Test
-    public void checkCompereLoginAndEmail () {
+    public void checkCompereLoginAndEmail() {
         String login = "login";
         String email = "email@";
         String login1 = "email@";
         String email1 = "email@";
-        Assertions.assertTrue(out.checkCompereEmailAndLogin(login,email));
-        Assertions.assertFalse(out.checkCompereEmailAndLogin(login1,email1));
+        Assertions.assertTrue(out.checkCompereEmailAndLogin(login, email));
+        Assertions.assertFalse(out.checkCompereEmailAndLogin(login1, email1));
 
     }
 
@@ -54,12 +55,11 @@ public class UserTest {
         String login1 = "email@";
         String email1 = "email@";
         IllegalArgumentException exception =
-                Assertions.assertThrows(IllegalArgumentException.class,()->{ out.getInstance(login1,email1);
+                Assertions.assertThrows(IllegalArgumentException.class, () -> {
+                    out.getInstance(login1, email1);
                 });
-        Assertions.assertEquals("Данные введены не коректно",exception.getMessage());
+        Assertions.assertEquals("Данные введены не коректно", exception.getMessage());
+
     }
-
-
 }
-
 
