@@ -4,14 +4,9 @@ public class User {
     private String login;
     private String email;
 
-    public User(String login, String email) {
-        if(login == null && email == null)
-            throw new NullPointerException();
-        else getInstance( login, email);
-
-        this.login = login;
-        this.email = email;
-    }
+    public  User(String login, String email) {
+        getInstance( login, email);
+      }
 
 
 
@@ -25,16 +20,23 @@ public class User {
     public User() {
     }
 
-    //    public class MyClass {
-//        private int i;
-//        private MyClass(int i) {
-//            this.i=i;
-//        }
-    public   boolean getInstance(String login,String email) {
+
+
+
+
+
+
+
+    public   User getInstance(String login,String email) {
         if (!checkCompereEmailAndLogin(login,email ) && !checkEmail(email)) {
-            throw new IllegalArgumentException( "Данные  введены не коректно");
+            throw new IllegalArgumentException( "Данные введены не коректно");
         }
-        else return true;
+        else if(login == null && email == null)
+            throw new NullPointerException();
+        User user = new User();
+        this.login = login;
+        this.email = email;
+            return user ;
     }
 
 
